@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { createServerClient } from '@supabase/ssr' // Import only createServerClient
+import { createServerClient } from '@supabase/ssr'
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
@@ -9,21 +9,34 @@ export async function GET(request: Request) {
   const next = searchParams.get('next') ?? '/'
 
   if (code) {
-    const cookieStore = cookies()
-    // Create client without explicit cookie handlers for route handler
+    const cookieStore = await cookies()
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
-        cookies: { // Still need basic get/set/remove for exchangeCodeForSession to work
-          get(name: string) {
-            return cookieStore.get(name)?.value
+        cookies: {
+          async get(name: string) {
+            const cookieStore = await cookies()
+            const cookie = cookieStore.get(name)
+            return cookie?.value
           },
-          set(name: string, value: string, options) {
-            cookieStore.set({ name, value, ...options })
+          async set(name: string, value: string, options) {
+            try {
+              const cookieStore = await cookies()
+              cookieStore.set({ name, value, ...options })
+            } catch (error) {
+              // Handle cookie setting error
+              console.error('Error setting cookie:', error)
+            }
           },
-          remove(name: string, options) {
-            cookieStore.set({ name, value: '', ...options })
+          async remove(name: string, options) {
+            try {
+              const cookieStore = await cookies()
+              cookieStore.set({ name, value: '', ...options })
+            } catch (error) {
+              // Handle cookie removal error
+              console.error('Error removing cookie:', error)
+            }
           },
         },
       }
