@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
 /.pnp
 .pnp.js
 
@@ -12,35 +13,52 @@
 /prisma/db.sqlite
 /prisma/db.sqlite-journal
 db.sqlite
+=======
+>>>>>>> 0f4cf14 ( Initial commit)
 
 # next.js
 /.next/
 /out/
+<<<<<<< HEAD
 next-env.d.ts
+=======
+>>>>>>> 0f4cf14 ( Initial commit)
 
 # production
 /build
 
+<<<<<<< HEAD
 # misc
 .DS_Store
 *.pem
 
+=======
+>>>>>>> 0f4cf14 ( Initial commit)
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+<<<<<<< HEAD
 # local env files
 # do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
 .env
 .env*.local
+=======
+# env files
+.env*
+>>>>>>> 0f4cf14 ( Initial commit)
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
+<<<<<<< HEAD
 
 # idea files
 .idea
+=======
+next-env.d.ts
+>>>>>>> 0f4cf14 ( Initial commit)
