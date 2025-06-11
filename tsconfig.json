@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-    /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "es2022",
@@ -10,13 +8,9 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-
-    /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
-
-    /* Bundled projects */
     "lib": ["dom", "dom.iterable", "ES2022"],
     "noEmit": true,
     "module": "ESNext",
@@ -24,11 +18,9 @@
     "jsx": "preserve",
     "plugins": [{ "name": "next" }],
     "incremental": true,
-
-    /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [
@@ -39,30 +31,5 @@
     "**/*.js",
     ".next/types/**/*.ts"
   ],
-=======
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "target": "ES6",
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
->>>>>>> 0f4cf14 ( Initial commit)
   "exclude": ["node_modules"]
 }
